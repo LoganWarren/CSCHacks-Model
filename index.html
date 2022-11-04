@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width">
+  <title>Malleable</title>
+  <link href="style.css" rel="st ylesheet" type="text/css" />
+  <style>
+    body {
+      margin: 0
+    }
+  </style>
+</head>
+
+<style>
+  hr {
+    width: 95%;
+    height: 5px;
+    background-color: grey;
+    border-width: 10px;
+    border-color: darkgrey;
+  }
+
+  h1 {
+    font-size: 30px
+  }
+
+  h2 {
+    font-size: 15px
+  }
+
+  h3 {
+    font-size: 15px
+  }
+
+  body {
+    background-color: lightgrey;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .horizontal_line {
+    background: black;
+    width: 10%;
+    height: 6px;
+    border-Top: 54px green;
+    line-height: 40%;
+  }
+}
+</style>
+
+<style>
+  .header {
+  padding: 1% 16px;
+  background: #555;
+  color: #f1f1f1;
+    .content {
+  padding: 16px;
+}
+    .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+    .sticky + .content {
+  padding-top: 102px;
+} 
+</style>
+
+
+  
+
+<body>
+
+ <div class="header" id="myHeader">
+     <form style="position:absolute; top:2%; left:75%">       <label>Object Selection</label>
+      <select name="Object Selection">
+        <option value = "Cube"selected> Cube</option>        
+        <option value = "Plane (2D)"> Plane (2D) </option>
+        <option value = "Cylinder"> Cylinder </option>
+      </select>
+  </form>
+  <form style="position:absolute; top:7%; left:75%">
+    <label>Color Selection</label>
+      <select name="Color Selection">
+        <option value = "White" selected> White</option>        
+        <option value = "Seafoam"> Seafoam</option>
+        <option value = "Coral"> Coral</option>
+        <option value = "Lightgreen"> Lightgreen </option>
+      </select>
+  </form>
+   <center>
+        <Strong style=font-size:25px >Malleable</Strong>
+        <div class="horizontal_line"></div>
+        <Strong style=font-size:20px> CSC Hackathon Project : Xavier Bear, Logan Warren
+          <strong/>
+      </center>
+      <hr />
+</div> 
+
+
+  
+
+
+        
+
+
+
+        
+      
+      <p1>This is a test</p1>
+      <br>
+      <p2>This is the second Test</p2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js">
+      </script>
+            
+      <script src="js/three.js"></script>
+
+
+      <script src="./script.js"> </script>
+
+
+      <script src="https://replit.com/public/js/replit-badge.js" theme="green" defer></script>
+
+
+
+
+<script> // When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction()};
+// Get the header
+var header = document.getElementById("myHeader");
+
+// Get the offset position of the navbar
+var sticky = header.offsetTop;
+
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+} 
+</script>
+            
+</body>
+
+</html>
