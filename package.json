@@ -1,5 +1,24 @@
 {
-  "dependencies": {
-    "three": "^0.146.0"
-  }
+  "devDependencies": {
+    "three": "^0.146.0",
+    "three-orbit-controls": "^82.1.0"
+  },
+  "name": "cschacks-model",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vaxier8/CSCHacks-Model.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vaxier8/CSCHacks-Model/issues"
+  },
+  "homepage": "https://github.com/Vaxier8/CSCHacks-Model#readme"
 }
