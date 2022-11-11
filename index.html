@@ -73,8 +73,8 @@
     padding-top: 102px;
   }
 #ColorSelection {
-<!NOT DONE>
-}
+  if 
+  }
 
 
   
@@ -107,13 +107,11 @@
     
     <form style="position:absolute; top:40%; right:75%">
       <label> Change Color </label>
-      <select name="Color Selection" id="ColorSelection">
+      <select name="Color Selection" id="ColorSelection" onchange="handleSelect()">
         <option value="Default" selected> Default</option>
         <option value="B and W"> B and W</option>                                            
       </select>    
     </form>
-
-
     
     <center>
       <Strong style=font-size:25px>Malleable</Strong>
@@ -132,12 +130,21 @@
       A Turns on and off Axis
   </p2>
 
+<script>
+document.getElementById("ColorSelection").onchange = function(){
+  if (this.value == 'Default') {
+        var optionID=document.getElementById('1');
+        alert(optionID.value);
 
+    }
+    if (this.value == 'B and W') {
+        
+        
+  }
+}
 
-
-
-
-
+  
+</script>
 
 
 
