@@ -6,13 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width">
   <title>Malleable</title>
-  <link href="style.css" rel="st ylesheet" type="text/css" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
   <style>
     body {
       margin: 0
     }
   </style>
 </head>
+
 
 <style>
   hr {
@@ -35,9 +37,7 @@
     font-size: 15px
   }
 
-  body {
-    background-color: lightgrey;
-  }
+
 
   body {
     overflow: hidden;
@@ -49,6 +49,19 @@
     height: 6px;
     border-Top: 54px green;
     line-height: 40%;
+  }
+
+  .horizontal_line2 {
+    background: gray;
+    width: max-content%;
+    height: max-content;
+  }
+
+  .horizontal_line3 {
+    background: darkgrey;
+    width: 100px;
+    height: 100px;
+
   }
 </style>
 
@@ -72,19 +85,25 @@
   .sticky+.content {
     padding-top: 102px;
   }
-#ColorSelection {
-  if 
-  }
-
-
-  
 </style>
 
 
 
-
 <body>
+
+
+
   <div class="header" id="myHeader" style="position: sticky; top: 0;">
+    <form style="position:absolute; top:1%; left:66%">
+      <img src="http://www.newdesignfile.com/postpic/2014/03/3d-cube-with-transparent-background_236917.png"
+        width=100px>
+    </form>
+
+    <form style="position:absolute; top:1%; right:66%">
+      <img src="http://www.math-salamanders.com/image-files/lgs-tetrahedron-no-bg.png" width=100px>
+    </form>
+
+
     <form style="position:absolute; top:5%; left:75%">
       <label>Object Selection</label>
       <select name="Object Selection">
@@ -93,79 +112,267 @@
         <option value="Cylinder"> Cylinder </option>
       </select>
     </form>
-    <form style="position:absolute; top:40%; left:75%">
-      <label>Object Color Selection</label>
-      <select name=" Object Color Selection">
-        <option value="White" selected> White</option>
-        <option value="Seafoam"> Seafoam</option>
-        <option value="Coral"> Coral</option>
-        <option value="Lightgreen"> Lightgreen </option>
-      </select>
-    </form>
+  <form style="position:absolute; top:40%; left:75%">
+        Background color:
+  <!-- Note the onchange attribute. "this" refers to the changing element. -->
+  <select id="background" onchange="updateBackgroundColour(this)">
+    <option value="red">Red</option>
+    <option value="0x000000">Black</option>
+    <option value="0x34495e">Wet asphalt</option>
+  </select>
+  </form>
+
+    <form style="position:absolute; top:25%; right:75%">
+      <div class="horizontal_line2" style="border: 10px solid black">
+        <p1 style="font-size: 22px; margin-left: 5px;padding: 5px;">Welcome to the Malleable project</p1>
+        <br>
+        <p2 style="margin-left: 13px; font-size: 20px">How To Use Malleable: </p2>
+        <br>
+        <p3 style="margin-left: 60px; font-size: 15px;">Rotate Z-axis: "E" & "R" keys
+          <p3 />
+          <br>
+          <p4 style="margin-left: 60px;">Rotate X-axis: ⇆ keys
+            <p4 />
+            <br>
+            <p5 style="margin-left: 60px;">Rotate Y-axis: ⇅ keys
+              <p5 />
+              <br>
+              <p6 style="margin-left: 60px;">Axis Visibility: "A" Key
+                <p6 />
+                <br>
+                <p7 style="margin-left: 60px;">Left-click: to Add a block</p7>
+                <br>
+                <p8 style="margin-left: 60px;">Right-click: to remove a block
+
+                </p8>
+                <form>
+
+      </div>
     </form>
 
-    
-    <form style="position:absolute; top:40%; right:75%">
-      <label> Change Color </label>
-      <select name="Color Selection" id="ColorSelection" onchange="handleSelect()">
-        <option value="Default" selected> Default</option>
-        <option value="B and W"> B and W</option>                                            
-      </select>    
-    </form>
-    
+
+
     <center>
       <Strong style=font-size:25px>Malleable</Strong>
       <div class="horizontal_line"></div>
+
       <Strong style=font-size:20px> CSC Hackathon Project : Xavier Bear, Logan Warren
         <strong />
+
     </center>
+
     <hr />
+
   </div>
+  <form style="position:absolute; top:19.5%; left:93%">
+    <img
+      src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F24.media.tumblr.com%2Ftumblr_m3ogs6FB0A1qzw1qyo1_r1_500.gif&f=1&nofb=1&ipt=31cf5ac4d9d77be1e1f0fde5853f193e083929e10605db870ceff41445d4adc1&ipo=images"
+      width=100px>
+  </form>
 
 
-  <p1>Welcome to the Malleable project</p1>
-  <br>
-  <p2>How To...
-      E and R rotate
-      A Turns on and off Axis
-  </p2>
 
-<script>
-document.getElementById("ColorSelection").onchange = function(){
-  if (this.value == 'Default') {
-        var optionID=document.getElementById('1');
-        alert(optionID.value);
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js">
+  </script>
 
-    }
-    if (this.value == 'B and W') {
-        
-        
+  <script>
+
+    function updateBackgroundColour(selectElem) {
+  var i = selectElem.selectedIndex; // Get the selected option's index.
+  if (i < 0) {
+    return; // Nothing is selected.
   }
+  // Set the background-color CSS attribute of the <body> element to 
+  // the value attribute of the selected option in our <select> element.
+        var sel1 = selectElem.options[i].value;
+ 
 }
 
+
+    const objects = []
+    //creates Scene and Camera
+    let ratio = window.innerWidth / window.innerHeight;
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, ratio, 0.1, 1000);
+    camera.position.z = 10;
+    ////
+
+    //creates renderer
+    const renderer = new THREE.WebGLRenderer({antialias: true});
+    renderer.setClearColor('#008080');
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+    ////
+
+    //resizes the scene when the aspect ration changes
+    window.addEventListener('resize', () => {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    });
+    ////
+
+    //Camera Pivot and axis of rotation
+    let camera_pivot = new THREE.Object3D();
+    let Y_AXIS = new THREE.Vector3(0, 1, 0);
+    let X_AXIS = new THREE.Vector3(1, 0, 0);
+    let Z_AXIS = new THREE.Vector3(0, 0, 1);
+
+    scene.add(camera_pivot);
+    camera_pivot.add(camera);
+    ////
+
+
+    //Axes Helper
+    //const axesHelper = new THREE.AxesHelper(10);
+    //scene.add(axesHelper);
+    //let axesHelpOn = true;
+    /////
+
+
+    //Create Geometry Geometry
+    const material = new THREE.MeshLambertMaterial(
+      {color: 0x00ff00}
+    );
+    let geometry = new THREE.BoxGeometry(1, 1, 1);
+
+    var outlineMaterial = new THREE.MeshBasicMaterial({color: 0xff0000, side: THREE.BackSide});
+
+
+
+
+
+   
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.position.set(0, 0, 0);
+      scene.add(mesh);
+      objects.push(mesh);
+
+      const outlineMesh = new THREE.Mesh(geometry, outlineMaterial);
+      outlineMesh.position = (0, 0, 0);
+      outlineMesh.scale.multiplyScalar(1.01);
+      scene.add(outlineMesh)
+
+    
+    ////
+
+
+
+
+    //raycaster
+    const raycaster = new THREE.Raycaster()
+    const mouse = new THREE.Vector2()
+    ////
+
+
+    //lighting
+    var light = new THREE.DirectionalLight(0x404040, 3);
+    light.position.z = 4.9;
+    scene.add(light);
+    camera_pivot.add(light);
+    ////
+
+
+    //Key Command/Camera Controls
+    document.onkeydown = function (event) {
+      switch (event.keyCode) {
+        case 37: //Left Key
+
+          camera_pivot.rotateOnAxis(Y_AXIS, -0.05);
+
+          break;
+        case 38:// Up Key
+
+          camera_pivot.rotateOnAxis(X_AXIS, 0.05);
+
+          break;
+
+        case 39: // Right Key
+
+          camera_pivot.rotateOnAxis(Y_AXIS, 0.05);
+
+          break;
+
+
+        case 40: // Down Key
+
+          camera_pivot.rotateOnAxis(X_AXIS, -0.05);
+
+          break;
+
+       // case 65: // "a"
+         // if (axesHelpOn == true) {
+         //   scene.remove(axesHelper);
+          //  axesHelpOn = false;
+
+          //}
+          //else {
+          //  scene.add(axesHelper);
+          //  axesHelpOn = true;
+
+          //}
+          //break;
+
+
+        case 69: // "e"
+
+          camera_pivot.rotateOnAxis(Z_AXIS, -0.05);
+
+          break;
+
+        case 82: // "r"
+
+          camera_pivot.rotateOnAxis(Z_AXIS, 0.05);
+
+      }
+
+
+    };
+    ////
+
+
+
+    renderer.render(scene, camera);
+
+    const render = () => {
+      requestAnimationFrame(render)
+      renderer.render(scene, camera)
+    }
+
+
+
+
+
+    window.addEventListener('click', event => {
+
+      event.preventDefault();
+
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+
+      const intersects = raycaster.intersectObjects(objects);
+
+     if (intersects.length > 0){
+       const intersect = intersects[0]
+
+       const cube = new THREE.Mesh(geometry, material);
+       cube.position.copy(intersect.point).add(intersect.face.normal);
+       cube.position.divideScalar(1).floor().multiplyScalar(1).addScalar(.5);
+       scene.add(cube);
+       
+     }
+    render();
   
-</script>
+    });
+    render();
 
 
-
-
-
-
-
-
-
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js">
-
-    <script src="three.module.js" type="module"></script>
-  <script src="three.js"></script>
-  <script src="OrbitControls.js"></script>
-  <script src="script.mjs" type="module"></script>
-
-
-  <script src="https://replit.com/public/js/replit-badge.js" theme="green" defer></script>
-
+  </script>
+          
 </body>
 
 </html>
